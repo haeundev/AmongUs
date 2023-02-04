@@ -5,19 +5,21 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button onlineButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private GameObject onlineUI;
 
     private void Awake()
     {
         onlineButton.onClick.AddListener(OnClickOnlineButton);
         quitButton.onClick.AddListener(OnClickQuitButton);
     }
-
-    public void OnClickOnlineButton()
+    
+    private void OnClickOnlineButton()
     {
-        
+        onlineUI.SetActive(true);
+        gameObject.SetActive(false);
     }
 
-    public void OnClickQuitButton()
+    private void OnClickQuitButton()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
